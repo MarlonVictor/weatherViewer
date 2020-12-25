@@ -1,14 +1,36 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import Image from 'next/image';
+import { useState } from 'react';
+
+import "tailwindcss/tailwind.css";
+
 
 export default function Home() {
+    const [darkMode, setDarkMode] = useState(false)
+
     return (
-        <div>
+        <div className={darkMode ? 'dark' : null}>
             <Head>
                 <title>Weather Viewer</title>
-                <link rel="icon" href="https://www.flaticon.com/svg/static/icons/svg/3937/3937315.svg" />
+                <link rel="icon" href="/WhiteIcon.png" />
             </Head>
-            <main>
-                <h1>weatherViewer</h1>
+
+            <main className="bg-gray-50 dark:bg-gray-500 h-screen flex items-center justify-around">
+                <h1 className="text-3xl font-serif text-gray-600 dark:text-gray-100">weatherViewer</h1>
+
+                <Image
+                    src={darkMode ? '/WhiteIcon.png' : '/BlackIcon.png'}
+                    alt="Picture of the author"
+                    width={200}
+                    height={200}
+                />
+
+                <button 
+                    className="bg-gray-600 dark:bg-gray-200 text-gray-200 dark:text-gray-600 rounded-lg p-4" 
+                    onClick={() => setDarkMode(!darkMode)}
+                >
+                    Change
+                </button>
             </main>
         </div>
     )
