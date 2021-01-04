@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { useState } from 'react';
+import Link from 'next/link';
 
 import "tailwindcss/tailwind.css";
 
@@ -16,7 +17,9 @@ export default function Home() {
             </Head>
 
             <main className="bg-gray-50 dark:bg-gray-500 h-screen flex items-center justify-around">
-                <h1 className="text-3xl font-serif text-gray-600 dark:text-gray-100">weatherViewer</h1>
+                <Link href="/weather">
+                    <button className="bg-white p-1 mt-3 border-2 border-gray-400 rounded dark:bg-gray-600 dark:text-gray-200">Weather Detail</button>
+                </Link>
 
                 <Image
                     src={darkMode ? '/WhiteIcon.png' : '/BlackIcon.png'}
