@@ -3,6 +3,7 @@ import Head from 'next/head';
 import MainDisplay from '../components/MainDisplay';
 import WeekDisplay from '../components/WeekDisplay';
 import SearchInput from '../components/SearchInput';
+import SideBar from '../components/SideBar';
 
 import "tailwindcss/tailwind.css";
 
@@ -17,6 +18,8 @@ export default function Weather() {
             </Head>
 
             <section className="bg-gray-50 min-h-screen flex justify-center items-center">
+                <SideBar page="home" />
+
                 <main className="w-full sm:mb-10 text-center">
                     <SearchInput />
 
@@ -29,7 +32,7 @@ export default function Weather() {
                         <WeekDisplay week_day="Ter" />
                         <WeekDisplay week_day="Qua" />
                         <WeekDisplay week_day="Qui" />
-                        <WeekDisplay week_day="Sex" is_last={true}/>
+                        <WeekDisplay week_day="Sex" is_last={true} />
                     </div>
                 </main>
             </section>
