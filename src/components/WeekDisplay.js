@@ -1,10 +1,10 @@
 export default function WeekDisplay({ week_day, is_last }) {
     return (
-        <div className={`flex sm:flex-col justify-center items-center w-full sm:w-auto font-sans text-center px-5 relative -top-3 ${is_last ? null : 'border-b-4 sm:border-b-0 sm:border-r-4'} border-gray-200`}>
+        <div className={`flex sm:flex-col justify-center items-center w-full sm:w-auto font-sans text-center px-5 relative -top-3 ${is_last ? null : 'border-b-4 sm:border-b-0 sm:border-r-4'} border-gray-200 dark:border-gray-600`}>
             <header>
                 <h1>{week_day}</h1>
 
-                <span className="text-gray-700 tracking-tight pr-10 sm:pr-0">
+                <span className="text-gray-700 dark:text-gray-200 tracking-tight pr-10 sm:pr-0">
                     24º
                     <b className="font-normal text-gray-400">/14º</b>
                 </span>

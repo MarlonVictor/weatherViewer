@@ -5,10 +5,10 @@ import { AiOutlineHome, AiOutlineStar, AiOutlineGithub, AiFillLinkedin } from 'r
 
 
 export default function SideBar({ page }) {
-    const currentPage = current => page === current ? 'bg-gray-300' : null
+    const currentPage = current => page === current ? 'bg-gray-300 dark:bg-gray-800' : null
 
     return (
-        <aside className="hidden md:flex flex-col justify-between w-60 min-h-screen bg-white rounded p-3 shadow-lg">
+        <aside className="hidden md:flex flex-col justify-between w-60 min-h-screen bg-white dark:bg-gray-700 rounded p-3 shadow-lg">
             <main>
                 <header className="flex items-center space-x-2 lg:space-x-4 py-2 lg:px-2 mb-5">
                     <img 
@@ -16,18 +16,18 @@ export default function SideBar({ page }) {
                         src="/BlackIcon.png" 
                         alt="Logo" 
                     />
-                    <h1 className="font-semibold lg:text-lg text-gray-700 capitalize font-poppins">Weather Viewer</h1>
+                    <h1 className="font-semibold lg:text-lg text-gray-700 dark:text-gray-200 capitalize font-poppins">Weather Viewer</h1>
                 </header>
                 <nav className="space-y-2 text-sm">
                     <Link href="/">
-                        <a className={`flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-300 focus:shadow-outline ${currentPage('home')}`}>
-                            <AiOutlineHome className="text-gray-600" size="25" />
+                        <a className={`flex items-center space-x-3 text-gray-700 dark:text-gray-300 p-2 rounded-md font-medium hover:bg-gray-300 dark:hover:bg-gray-800 focus:shadow-outline ${currentPage('home')}`}>
+                            <AiOutlineHome className="text-gray-600 dark:text-gray-200" size="25" />
                             <span>Inicio</span>
                         </a>
                     </Link>
                     <Link href="/favorites">
-                        <a className={`flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-300 focus:shadow-outline ${currentPage('fav')}`}>
-                            <AiOutlineStar className="text-gray-600" size="25" />
+                        <a className={`flex items-center space-x-3 text-gray-700 dark:text-gray-300 p-2 rounded-md font-medium hover:bg-gray-300 dark:hover:bg-gray-800 focus:shadow-outline ${currentPage('fav')}`}>
+                            <AiOutlineStar className="text-gray-600 dark:text-gray-200" size="25" />
                             <span>Favoritos</span>
                         </a>
                     </Link>
@@ -36,7 +36,7 @@ export default function SideBar({ page }) {
 
             <footer className="w-full flex justify-center items-center text-center">
                 <section className="border-r-4 border-gray-400 pr-5">
-                    <small className="text-xs text-gray-400">Social</small>
+                    <small className="text-xs text-gray-400 dark:text-gray-200">Social</small>
                     <div className="flex justify-center items-center space-x-2">
                         <a href="https://github.com/MarlonVictor" target="_blank">
                             <AiOutlineGithub size="23" />

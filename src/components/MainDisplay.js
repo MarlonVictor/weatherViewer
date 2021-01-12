@@ -11,7 +11,7 @@ export default function MainDisplay() {
 
             <main className="flex pt-3 justify-center items-center">
                 <div>
-                    <h2 className="tracking-tighter text-4xl sm:text-7xl font-bold text-gray-800">23ºC</h2>
+                    <h2 className="tracking-tighter text-5xl sm:text-7xl font-bold text-gray-800 dark:text-gray-200">23ºC</h2>
                     <p className="sm:text-lg tracking-wide text-gray-400 pb-3">Nublado</p>
                 </div>
                 <img
@@ -20,7 +20,7 @@ export default function MainDisplay() {
                 />
             </main>
 
-            <footer className="flex font-medium text-gray-500 space-x-6">
+            <footer className="flex font-medium text-gray-500 dark:text-gray-400 space-x-6">
                 <small>Sensação: 21ºC</small>
                 <small>Vento: 250m/s</small>
                 <small>Humidade: 80%</small>

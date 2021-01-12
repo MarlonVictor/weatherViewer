@@ -2,9 +2,9 @@ import { BiMenu, BiSearchAlt } from 'react-icons/bi';
 
 export default function SearchInput() {
     return (
-        <div className="flex items-center relative bottom-1 w-full md:max-w-md mb-7 md:mt-6 mx-auto text-lg bg-transparent text-gray-700 border-b-4 border-gray-200">
+        <div className="flex items-center relative bottom-1 w-screen md:max-w-md mb-7 md:mt-6 mx-auto text-lg bg-transparent text-gray-700 dark:text-gray-300 border-b-4 border-gray-200 dark:border-gray-700">
             <button 
-                className="md:hidden bg-gray-200 relative -bottom-0.5 p-3"
+                className="md:hidden bg-gray-200 dark:bg-gray-700 dark:text-gray-200 relative -bottom-0.5 p-3"
             >
                 <BiMenu size="26px" />
             </button>
