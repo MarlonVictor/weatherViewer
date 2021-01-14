@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }) {
             <section className="bg-gray-50 dark:bg-gray-800 dark:text-gray-300 min-h-screen flex w-screen">
                 <SideBar page={currentPage} />
 
-                <main className="min-h-scren sm:mb-10 flex-1">
+                <main className="min-h-5/6 sm:mb-10 flex-1">
                     <Component {...pageProps} />
                 </main>
             </section>
