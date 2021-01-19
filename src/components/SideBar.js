@@ -1,19 +1,19 @@
 import Link from 'next/link';
-import { DarkModeSwitch } from 'react-toggle-dark-mode';
 
+import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import { AiOutlineHome, AiOutlineStar, AiOutlineGithub, AiFillLinkedin } from 'react-icons/ai';
 
 
-export default function SideBar({ page }) {
+export default function SideBar({ page, theme }) {
     const currentPage = current => page === current ? 'bg-gray-300 dark:bg-gray-800' : null
-
+    
     return (
-        <aside className="hidden md:flex flex-col justify-between w-60 min-h-screen bg-white dark:bg-gray-700 rounded p-3 shadow-lg">
+        <aside className="hidden md:flex flex-col justify-between w-60 min-h-screen bg-white dark:bg-gray-700 p-3 shadow-lg">
             <main>
                 <header className="flex items-center space-x-2 lg:space-x-4 py-2 lg:px-2 mb-5">
                     <img 
                         className="h-12" 
-                        src="/BlackIcon.png" 
+                        src={theme.isDark ? '/WhiteIcon.png' : '/BlackIcon.png'} 
                         alt="Logo" 
                     />
                     <h1 className="font-semibold lg:text-lg text-gray-700 dark:text-gray-200 capitalize font-poppins">Weather Viewer</h1>
@@ -49,8 +49,8 @@ export default function SideBar({ page }) {
 
                 <section className="text-center pl-5">
                     <DarkModeSwitch
-                        // checked={state}
-                        // onChange={() => toggle function}
+                        checked={theme.isDark}
+                        onChange={theme.setIsDark}
                         size={35}
                     />
                 </section>
