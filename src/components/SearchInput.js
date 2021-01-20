@@ -1,9 +1,20 @@
+import { useContext } from 'react';
+
 import { BiMenu, BiSearchAlt } from 'react-icons/bi';
 
+import { Context } from '../providers/GlobalProvider';
+
+
 export default function SearchInput() {
+    const { values, setValues } = useContext(Context)
+
+    const itsOpen = values.openMenu
+    const toggleScale = () => setValues.setOpenMenu(!itsOpen)
+
     return (
-        <div className="flex items-center relative bottom-1 w-screen md:max-w-md mb-7 md:mt-6 mx-auto text-lg bg-transparent text-gray-700 dark:text-gray-300 border-b-4 border-gray-200 dark:border-gray-700">
+        <div className={`${itsOpen ? 'border-gray-700 text-gray-700' : 'border-gray-200'} z-0 flex items-center relative bottom-1 w-screen md:max-w-md mb-7 md:mt-6 mx-auto text-lg bg-transparent text-gray-700 dark:text-gray-300 border-b-4 dark:border-gray-700`}>
             <button 
+                onClick={toggleScale}
                 className="md:hidden bg-gray-200 dark:bg-gray-700 dark:text-gray-200 relative -bottom-0.5 p-3"
             >
                 <BiMenu size="26px" />
