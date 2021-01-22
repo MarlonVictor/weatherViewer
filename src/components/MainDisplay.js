@@ -1,4 +1,5 @@
 import moment from 'moment';
+import imageUrlGenerator from '../utils/imageUrlGenerator';
 
 export default function MainDisplay({ values }) {
     moment.locale('pt_br')
@@ -8,24 +9,24 @@ export default function MainDisplay({ values }) {
         <div className="flex flex-col items-center font-sans text-center">
             {values && (
                     <>
-                        <h1 className="text-2xl font-semibold sm:font-base sm:text-4xl pb-1">{values.name}</h1>
+                        <h1 className="text-2xl font-semibold sm:font-base sm:text-4xl pb-1">{values.name}, {values.sys.country}</h1>
                         <small>{dia}</small>
 
                         <main className="flex pt-3 justify-center items-center">
                             <div>
-                                <h2 className="tracking-tighter text-5xl sm:text-7xl font-bold text-gray-800 dark:text-gray-200">23ºC</h2>
-                                <p className="sm:text-lg tracking-wide text-gray-400 pb-3">Nublado</p>
+                                <h2 className="tracking-tighter text-5xl sm:text-7xl font-bold text-gray-800 dark:text-gray-200">{Math.round(values.main.temp)}K</h2>
+                                <p className="sm:text-lg tracking-wide text-gray-400 pb-3">{values.weather[0].description}</p>
                             </div>
                             <img
                                 className="w-28 sm:w-40 ml-7"
-                                src="https://www.flaticon.com/svg/static/icons/svg/578/578116.svg" 
+                                src={imageUrlGenerator(values.weather[0].icon)}
                             />
                         </main>
 
-                        <footer className="flex font-medium text-gray-500 dark:text-gray-400 space-x-6">
-                            <small>Sensação: 21ºC</small>
-                            <small>Vento: 250m/s</small>
-                            <small>Humidade: 80%</small>
+                        <footer className="flex font-medium text-gray-500 dark:text-gray-400 space-x-6 pt-1">
+                            <small>Sensação: {values.main.feels_like}K</small>
+                            <small>Vento: {values.wind.speed} m/s</small>
+                            <small>Humidade: {values.main.humidity}%</small>
                         </footer>
                     </>
                 )
