@@ -22,6 +22,21 @@ export default function Weather() {
         }
     })
 
+    function tempConverter(temp) {
+        const scaleName = values.scale
+        const scaleCalc = temp - 273.15
+
+        if(scaleName === 'Celsius') {
+            return `${Math.round(scaleCalc)}ºC`
+
+        } else if(scaleName === 'Fahrenheit') {
+            return `${Math.round(scaleCalc * (9/5) + 32)}ºF`
+
+        } else {
+            return `${Math.round(temp)}ºK`
+        }
+    }
+
     useEffect(() => {
         load()
     }, [locationName])
@@ -44,7 +59,7 @@ export default function Weather() {
                 ? <h2>Carregando</h2>
                 : (
                     <>
-                        <MainDisplay values={loadInfo.data} />
+                        <MainDisplay values={loadInfo.data} tempValue={tempConverter} />
 
                         <p className="sm:invisible bg-white dark:bg-gray-700 w-full mt-8 mb-3 sm:mb-0 py-2 tracking-wide text-center text-gray-400 dark:text-gray-300">Previsão dos próximos 5 dias:</p>
 

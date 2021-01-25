@@ -11,8 +11,8 @@ export default function Home() {
                 <div className="md:mt-10 xl:mt-20">
                     <small className="text-xs text-gray-400 dark:text-gray-200">Escolha uma Unidade de Medida:</small>
                     <div className="flex justify-center items-center space-x-1 mb-3 text-gray-500 dark:text-gray-300">
+                        <ScaleSelector name="Celsius" />
                         <ScaleSelector name="Kelvin" />
-                        <ScaleSelector name="Celcius" />
                         <ScaleSelector name="Fahrenheit" />
                     </div>
                 </div>
