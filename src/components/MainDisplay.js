@@ -1,3 +1,5 @@
+import { BsStar, BsStarFill } from 'react-icons/bs';
+
 import imageUrlGenerator from '../utils/imageUrlGenerator';
 
 
@@ -5,8 +7,19 @@ export default function MainDisplay({ data, tempValue, date }) {
     return (
         <div className="flex flex-col items-center font-sans text-center">
             {data && (
-                    <>
-                        <h1 className="text-2xl font-semibold sm:font-base sm:text-4xl pb-1">{data.name}, {data.sys.country}</h1>
+                    <>  
+                        <header className="flex items-center">
+                            <h1 className="text-2xl font-semibold sm:font-base sm:text-4xl pb-1">{data.name}, {data.sys.country}</h1>
+                            <BsStar 
+                                className="ml-5 text-gray-500 dark:text-gray-200 hover:text-yellow-300 dark:hover:text-yellow-300 transition duration-150 cursor-pointer" 
+                                size="38" 
+                            />
+                            <BsStarFill 
+                                size="38" 
+                                className="ml-5 text-yellow-300 hover:opacity-70 transition duration-150 cursor-pointer" 
+                            />
+                        </header>
+
                         <small>{date}</small>
 
                         <main className="flex pt-3 justify-center items-center">

@@ -91,7 +91,14 @@ export default function Weather() {
                                         />
                                     }).slice(0, 5)}
                                 </>
-                            ) : <button onClick={() => fetchWeekInfos()} className="bg-gray-500">Veja a previsão dos próximos 5 dias</button>}
+                            ) : (
+                                <button
+                                    onClick={() => fetchWeekInfos()}
+                                    className="mt-7 sm:mt-0 py-2 px-3 sm:px-6 rounded shadow-lg bg-white dark:bg-gray-700 border-b-2 border-gray-400 transition hover:bg-gray-200 dark:hover:bg-gray-600"
+                                >
+                                    <span className="mx-auto text-sm text-gray-800 dark:text-gray-300 font-bold sm:tracking-wide">Veja a previsão dos próximos dias</span>
+                                </button>
+                            )}
                         </div>
                     </>
                 )
