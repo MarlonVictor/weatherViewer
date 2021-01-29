@@ -6,7 +6,7 @@ import MainDisplay from '../components/MainDisplay';
 import WeekDisplay from '../components/WeekDisplay';
 import SearchInput from '../components/SearchInput';
 
-import useApi from '../utils/useApi';
+import useApi from '../hooks/useApi';
 import { Context } from '../providers/GlobalProvider';
 
 

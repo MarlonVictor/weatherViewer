@@ -1,23 +1,47 @@
+import { useState } from 'react';
 import { BsStar, BsStarFill } from 'react-icons/bs';
 
 import imageUrlGenerator from '../utils/imageUrlGenerator';
+import useLocalStorage from '../hooks/useLocalStorage';
 
 
 export default function MainDisplay({ data, tempValue, date }) {
+    const [favored, setFavored] = useState(undefined)
+    const favoriteList = localStorage.getItem('favorites')
+
+    function handleFavorites(mode, name) {
+        if(mode === 'add') {
+            useLocalStorage('save', name)
+            setFavored(true)
+        } else {
+            useLocalStorage('delete', name)
+            setFavored(false)
+        }
+    }
+
+
     return (
         <div className="flex flex-col items-center font-sans text-center">
             {data && (
                     <>  
                         <header className="flex items-center">
                             <h1 className="text-2xl font-semibold sm:font-base sm:text-4xl pb-1">{data.name}, {data.sys.country}</h1>
-                            <BsStar 
-                                className="ml-5 text-gray-500 dark:text-gray-200 hover:text-yellow-300 dark:hover:text-yellow-300 transition duration-150 cursor-pointer" 
-                                size="38" 
-                            />
-                            <BsStarFill 
-                                size="38" 
-                                className="ml-5 text-yellow-300 hover:opacity-70 transition duration-150 cursor-pointer" 
-                            />
+                            {favoriteList.includes(data.name)
+                                ? (
+                                    <BsStarFill 
+                                        size="38" 
+                                        onClick={() => handleFavorites('del', data.name)}
+                                        className="ml-5 text-yellow-300 hover:opacity-70 transition duration-150 cursor-pointer" 
+                                    /> 
+                                )
+                                : (
+                                    <BsStar 
+                                        size="38" 
+                                        onClick={() => handleFavorites('add', data.name)}
+                                        className="ml-5 text-gray-500 dark:text-gray-200 hover:text-yellow-300 dark:hover:text-yellow-300 transition duration-150 cursor-pointer" 
+                                    />
+                                )
+                            }
                         </header>
 
                         <small>{date}</small>
