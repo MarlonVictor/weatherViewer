@@ -10,7 +10,7 @@ import 'tailwindcss/tailwind.css';
 
 export default function MyApp({ Component, pageProps }) {
     const router = useRouter()
-    const currentPage = router.pathname === 'favorites' ? 'fav' : 'home'
+    const currentPage = router.pathname === '/favorites' ? 'fav' : 'home'
 
     const [isDark, setIsDark] = useState(false)
 
