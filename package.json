@@ -1,7 +1,8 @@
 {
   "name": "weather-viewer",
   "version": "0.1.0",
-  "private": true,
+  "repository": "https://github.com/MarlonVictor/weatherViewer.git",
+  "author": "MarlonVictor <cmarlonvictor11@gmail.com>",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -16,6 +17,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-icons": "^4.1.0",
+    "react-lottie": "^1.2.3",
     "react-toggle-dark-mode": "^1.0.3",
     "tailwindcss": "^2.0.2"
   }

@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import moment from 'moment';
 import axios from 'axios';
 
+import Loader from '../components/LoaderAnimation';
 import MainDisplay from '../components/MainDisplay';
 import WeekDisplay from '../components/WeekDisplay';
 import SearchInput from '../components/SearchInput';
@@ -60,7 +61,17 @@ export default function Weather() {
         return (
             <>
                 <SearchInput />
-                <h1>Ocorreu um erro!</h1>
+                
+                <img 
+                    alt="ERROR" 
+                    src="https://www.freeiconspng.com/uploads/sign-red-error-icon-1.png" 
+                    className="w-24 md:w-36 mx-auto"
+                />
+
+                <div className="text-center font-semibold text-gray-600 dark:text-gray-200">
+                    <h1 className="py-2 text-lg sm:text-2xl xl:text-3xl 2xl:text-4xl">Ocorreu um erro!</h1>
+                    <h2 className="px-2 sm:text-xl xl:text-2xl 2xl:text-3xl">Digite o nome do local desejado novamente</h2>
+                </div>
             </>
         )
     }
@@ -70,8 +81,12 @@ export default function Weather() {
             <SearchInput />
 
             {mainInfo.loading 
-                ? <h2>Carregando</h2>
-                : (
+                ? (
+                    <div className="h-40 cursor-default">
+                        <Loader/>
+                    </div>
+
+                ) : (
                     <>
                         <MainDisplay data={mainInfo.data} tempValue={tempConverter} date={day} />
 
