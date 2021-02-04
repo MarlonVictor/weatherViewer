@@ -40,13 +40,13 @@ export default function SideBar({ page, theme }) {
 
                     <nav className="space-y-2 text-sm">
                         <Link href="/">
-                            <a className={`flex items-center space-x-3 text-gray-700 dark:text-gray-300 p-2 rounded-md font-medium hover:bg-gray-300 dark:hover:bg-gray-800 focus:shadow-outline ${currentPage('home')}`}>
+                            <a onClick={closeMenu} className={`flex items-center space-x-3 text-gray-700 dark:text-gray-300 p-2 rounded-md font-medium hover:bg-gray-300 dark:hover:bg-gray-800 focus:shadow-outline ${currentPage('home')}`}>
                                 <AiOutlineHome className="text-gray-600 dark:text-gray-200" size="25" />
                                 <span>Inicio</span>
                             </a>
                         </Link>
                         <Link href="/favorites">
-                            <a className={`flex items-center space-x-3 text-gray-700 dark:text-gray-300 p-2 rounded-md font-medium hover:bg-gray-300 dark:hover:bg-gray-800 focus:shadow-outline ${currentPage('fav')}`}>
+                            <a onClick={closeMenu} className={`flex items-center space-x-3 text-gray-700 dark:text-gray-300 p-2 rounded-md font-medium hover:bg-gray-300 dark:hover:bg-gray-800 focus:shadow-outline ${currentPage('fav')}`}>
                                 <AiOutlineStar className="text-gray-600 dark:text-gray-200" size="25" />
                                 <span>Favoritos</span>
                             </a>

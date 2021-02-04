@@ -7,7 +7,7 @@ import useLocalStorage from '../hooks/useLocalStorage';
 
 export default function MainDisplay({ data, tempValue, date }) {
     const [favored, setFavored] = useState(undefined)
-    const favoriteList = localStorage.getItem('favorites')
+    const favoriteList = localStorage.getItem('favorites') || []
 
     function handleFavorites(mode, name) {
         if(mode === 'add') {

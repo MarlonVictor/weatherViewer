@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useContext, useState } from 'react';
 
 import { BiMenu, BiSearchAlt } from 'react-icons/bi';
@@ -10,6 +11,7 @@ export default function SearchInput() {
     const [inputValue, setInputValue] = useState('')
     const { values, setValues } = useContext(Context)
 
+    const router = useRouter()
     const itsOpen = values.openMenu
     
     const toggleScale = () => setValues.setOpenMenu(!itsOpen)
@@ -17,6 +19,7 @@ export default function SearchInput() {
 
     function saveLocationName() {
         setValues.setLocation(inputValue)
+        router.push('/weather')
         setInputValue('')
     }
 
