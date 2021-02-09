@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { BsStarFill } from 'react-icons/bs';
 import { FaTrash } from 'react-icons/fa';
@@ -12,7 +12,11 @@ import SearchInput from '../components/SearchInput';
 export default function Favorites() {
     const { setValues } = useContext(Context)
     const [searchTerm, setSearchTerm] = useState('')
-    const [favorites, setFavorites] = useState(useLocalStorage())
+    const [favorites, setFavorites] = useState([])
+
+    useEffect(() => {
+        setFavorites(useLocalStorage())
+    }, [])
     
     const router = useRouter()
 

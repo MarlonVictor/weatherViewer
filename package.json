@@ -1,8 +1,10 @@
 {
   "name": "weather-viewer",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "Uma aplicação para obter o clima atual e previsões meteorológicas utilizando a openweathermap api.",
   "repository": "https://github.com/MarlonVictor/weatherViewer.git",
   "author": "MarlonVictor <cmarlonvictor11@gmail.com>",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

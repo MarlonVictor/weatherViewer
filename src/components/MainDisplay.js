@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BsStar, BsStarFill } from 'react-icons/bs';
 
 import imageUrlGenerator from '../utils/imageUrlGenerator';
@@ -7,7 +7,12 @@ import useLocalStorage from '../hooks/useLocalStorage';
 
 export default function MainDisplay({ data, tempValue, date }) {
     const [favored, setFavored] = useState(undefined)
-    const favoriteList = localStorage.getItem('favorites') || []
+    const [store, setStore] = useState([])
+
+    useEffect(() => {
+        const favorites = JSON.parse(localStorage.getItem('favorites'))
+        setStore(favorites)
+    }, [favored])
 
     function handleFavorites(mode, name) {
         if(mode === 'add') {
@@ -26,7 +31,7 @@ export default function MainDisplay({ data, tempValue, date }) {
                     <>  
                         <header className="flex items-center">
                             <h1 className="text-2xl font-semibold sm:font-base sm:text-4xl pb-1">{data.name}, {data.sys.country}</h1>
-                            {favoriteList.includes(data.name)
+                            {store.includes(data.name)
                                 ? (
                                     <BsStarFill 
                                         size="38" 
