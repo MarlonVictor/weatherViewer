@@ -2,13 +2,15 @@ import Link from 'next/link';
 import { useContext } from 'react';
 
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
-import { AiOutlineHome, AiOutlineStar, AiOutlineGithub, AiFillLinkedin, AiOutlineCloseCircle } from 'react-icons/ai';
+import { AiOutlineHome, AiOutlineStar, AiOutlineGithub, AiFillLinkedin } from 'react-icons/ai';
+import { IoMdClose } from 'react-icons/io';
 
 import { Context } from '../providers/GlobalProvider';
+import SearchInput from './SearchInput';
 
 
 export default function SideBar({ page, theme }) {
-    const currentPage = current => page === current ? 'bg-gray-300 dark:bg-gray-800' : null
+    const currentPage = current => page === current ? 'bg-gray-300 dark:bg-gray-900' : null
     const { values, setValues } = useContext(Context)
 
     const itsOpen = values.openMenu
@@ -17,8 +19,8 @@ export default function SideBar({ page, theme }) {
     const contentClick = e => e.stopPropagation()
     
     const asideClass = itsOpen 
-        ? 'z-20 flex flex-col justify-between w-full max-w-xs min-h-screen bg-white dark:bg-gray-700 p-3 shadow-lg absolute' 
-        : 'hidden md:flex flex-col justify-between w-60 min-h-screen bg-white dark:bg-gray-700 p-3 shadow-lg'
+        ? 'z-20 flex flex-col justify-between w-full max-w-xs min-h-screen bg-white dark:bg-gray-800 p-3 shadow-lg absolute' 
+        : 'z-20 hidden md:flex flex-col justify-between w-80 min-h-screen bg-white dark:bg-gray-800 p-3 shadow-lg'
     
 
     return (
@@ -26,27 +28,28 @@ export default function SideBar({ page, theme }) {
             <div className={`${itsOpen ? 'absolute' : 'hidden'} w-screen h-full bg-black bg-opacity-75 z-10`} onClick={() => closeMenu()} />
             <aside className={asideClass} onClick={contentClick}> 
                 <main>
-                    <header className="flex items-center space-x-2 lg:space-x-4 py-2 lg:px-2 mb-5">
+                    <header className="flex items-center space-x-4 py-2 px-2 mb-5">
                         <img 
                             className="h-12" 
                             src={theme.isDark ? '/WhiteIcon.png' : '/BlackIcon.png'} 
                             alt="Logo" 
                         />
-                        <h1 className="flex-1 font-semibold lg:text-lg text-gray-700 dark:text-gray-200 capitalize font-poppins">Weather Viewer</h1>
+                        <h1 className="flex-1 font-semibold text-lg text-gray-700 dark:text-gray-200 capitalize font-poppins">Weather Viewer</h1>
                         <button className="sm:hidden pr-2" onClick={closeMenu}>
-                            <AiOutlineCloseCircle className="text-gray-600 dark:text-gray-200" size="45" />
+                            <IoMdClose className="text-gray-600 dark:text-gray-200" size="25" />
                         </button>
                     </header>
 
                     <nav className="space-y-2 text-sm">
+                        <SearchInput screen="sidebar" />
                         <Link href="/">
-                            <a onClick={closeMenu} className={`flex items-center space-x-3 text-gray-700 dark:text-gray-300 p-2 rounded-md font-medium hover:bg-gray-300 dark:hover:bg-gray-800 focus:shadow-outline ${currentPage('home')}`}>
+                            <a onClick={closeMenu} className={`flex items-center space-x-3 text-gray-700 dark:text-gray-300 p-2 rounded-md font-medium hover:bg-gray-300 dark:hover:bg-gray-900 focus:shadow-outline ${currentPage('home')}`}>
                                 <AiOutlineHome className="text-gray-600 dark:text-gray-200" size="25" />
                                 <span>Inicio</span>
                             </a>
                         </Link>
                         <Link href="/favorites">
-                            <a onClick={closeMenu} className={`flex items-center space-x-3 text-gray-700 dark:text-gray-300 p-2 rounded-md font-medium hover:bg-gray-300 dark:hover:bg-gray-800 focus:shadow-outline ${currentPage('fav')}`}>
+                            <a onClick={closeMenu} className={`flex items-center space-x-3 text-gray-700 dark:text-gray-300 p-2 rounded-md font-medium hover:bg-gray-300 dark:hover:bg-gray-900 focus:shadow-outline ${currentPage('fav')}`}>
                                 <AiOutlineStar className="text-gray-600 dark:text-gray-200" size="25" />
                                 <span>Favoritos</span>
                             </a>

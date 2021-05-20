@@ -6,20 +6,30 @@ export default function WeekDisplay({ data, tempValue, date }) {
     const maxTemp = tempValue(data.temp.max)
     
     return (
-        <div className='flex sm:flex-col justify-center items-center w-full sm:w-auto font-sans text-center px-5 relative -top-3 border-gray-200 dark:border-gray-600'>
-            <header>
-                <h1 className="capitalize">{date.substr(0, 3)}</h1>
+        <>
+            <div className="hidden sm:flex flex-col items-center p-3 m-2 bg-white dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-700">
+                <h1 className="capitalize font-semibold tracking-wider text-gray-600 dark:text-gray-300">{date.substr(0, 3)}</h1>
+                <img
+                    className="w-14 py-3"
+                    loading="lazy"
+                    src={imageUrlGenerator(data.weather[0].icon)}
+                />
+                <p className="text-xs text-gray-400">Max {maxTemp.substr(0, minTemp.length - 1)} - Min {minTemp.substr(0, minTemp.length - 1)}</p>
+            </div>
 
-                <span className="text-gray-700 dark:text-gray-200 tracking-tight pr-10 sm:pr-0">
-                    {minTemp.substr(0, minTemp.length - 1)}
-                    <b className="font-normal text-gray-400">/{maxTemp.substr(0, minTemp.length - 1)}</b>
+            <div className="w-64 flex sm:hidden items-center justify-between py-2 px-5 mt-2 bg-white dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-700"> 
+                <h1 className="capitalize font-semibold tracking-wider text-gray-600 dark:text-gray-300">{date.substr(0, 3)}</h1>
+                <span>
+                    <p className="text-xs text-gray-400">Max: {maxTemp.substr(0, minTemp.length - 1)}</p>
+                    <p className="text-xs text-gray-400 mt-1">Min: {minTemp.substr(0, minTemp.length - 1)}</p>
                 </span>
-            </header>
 
-            <img
-                className="w-20 pb-3 sm:pb-0"
-                src={imageUrlGenerator(data.weather[0].icon)}
-            />
-        </div>
+                <img
+                    className="w-14"
+                    loading="lazy"
+                    src={imageUrlGenerator(data.weather[0].icon)}
+                />
+            </div>
+        </>
     )
 }

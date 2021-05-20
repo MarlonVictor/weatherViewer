@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+
 import { Context } from '../providers/GlobalProvider';
 
 
@@ -12,7 +13,7 @@ export default function ScaleSelector({ name }) {
         <button 
             value={name} 
             onClick={e => toggleScale(e.target.value)}
-            className={`${name === currentScale ? 'bg-gray-300 dark:bg-gray-800' : 'bg-gray-200 dark:bg-gray-600'} px-1 text-center text-sm border-2 border-gray-300 dark:border-gray-500 rounded hover:bg-gray-300 dark:hover:bg-gray-800`}
+            className={`${name === currentScale ? 'bg-gray-200 dark:bg-gray-600 border-gray-300' : 'bg-transparent'} text-center text-sm w-24 p-2 border-b-2 border-transparent hover:border-gray-300`}
         >
             {name}
         </button>

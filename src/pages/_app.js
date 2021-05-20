@@ -22,10 +22,10 @@ export default function MyApp({ Component, pageProps }) {
                     <link rel="icon" href="/WhiteIcon.png" />
                 </Head>
 
-                <main className="bg-gray-50 dark:bg-gray-800 dark:text-gray-300 min-h-screen flex w-screen">
+                <main className="flex min-h-screen bg-gray-50 dark:bg-gray-900 dark:text-gray-300">
                     <SideBar page={currentPage} theme={{isDark, setIsDark}}/>
 
-                    <section className="min-h-5/6 sm:mb-10 flex-1">
+                    <section className="flex-1">
                         <Component {...pageProps} />
                     </section>
                 </main>
