@@ -1,15 +1,15 @@
 import { useContext, useEffect, useState } from 'react';
+import { AiOutlineMenuUnfold } from 'react-icons/ai';
 import moment from 'moment';
 import axios from 'axios';
 
-import Loader from '../components/LoaderAnimation';
 import MainDisplay from '../components/MainDisplay';
 import WeekDisplay from '../components/WeekDisplay';
 import SearchInput from '../components/SearchInput';
 
 import useApi from '../hooks/useApi';
+import Lottie from '../utils/lottieAnimation';
 import { Context } from '../providers/GlobalProvider';
-import { AiOutlineMenuUnfold } from 'react-icons/ai';
 
 
 export default function Weather() {
@@ -93,7 +93,7 @@ export default function Weather() {
             {mainInfo.loading 
                 ? (
                    <div className="h-40 cursor-default mt-48">
-                        <Loader />
+                        <Lottie />
                     </div>
 
                 ) : (

@@ -1,14 +1,14 @@
-import { useState, useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { useState, useContext, useEffect } from 'react';
+import { AiOutlineMenuUnfold, AiOutlineSearch } from 'react-icons/ai';
 import { BsStarFill } from 'react-icons/bs';
 import { FaTrash } from 'react-icons/fa';
 
 import useLocalStorage from '../hooks/useLocalStorage';
 import { Context } from '../providers/GlobalProvider';
+import Lottie from '../utils/lottieAnimation';
 
 import SearchInput from '../components/SearchInput';
-import Empty from '../components/ListAnimation';
-import { AiOutlineMenuUnfold, AiOutlineSearch } from 'react-icons/ai';
 
 
 export default function Favorites() {
@@ -50,7 +50,7 @@ export default function Favorites() {
             {favorites.length < 1 ? (
                 <>
                     <div className="mt-32 w-44 mx-auto">
-                        <Empty />
+                        <Lottie animationName="Favorite" />
                     </div>
                     <h1 className="text-center text-lg sm:text-2xl font-semibold text-gray-600 dark:text-gray-200">Não há nenhum local salvo como Favorito!</h1>
                 </>

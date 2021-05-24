@@ -3,9 +3,9 @@ import { AiOutlineMenuUnfold } from 'react-icons/ai';
 
 import ScaleSelector from '../components/ScaleSelector';
 import SearchInput from '../components/SearchInput';
-import Animation from '../components/HomeAnimation';
 
 import { Context } from '../providers/GlobalProvider';
+import Lottie from '../utils/lottieAnimation';
 
 
 export default function Home() {
@@ -28,7 +28,7 @@ export default function Home() {
             <main className="flex flex-col md:flex-col-reverse items-center justify-center mt-5 md:mt-24 lg:mt-30">
                 <header className="bg-blue-400 rounded-xl md:mt-20">
                     <div className="w-40 px-3 mx-auto mt-3">
-                        <Animation />
+                        <Lottie animationName="Home" />
                     </div>
                     <div className="flex w-full bg-gray-100 dark:bg-gray-700">
                         <ScaleSelector name="Celsius" />
