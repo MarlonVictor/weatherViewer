@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { BsStar, BsStarFill, BsDroplet } from 'react-icons/bs';
 import { BiWind } from 'react-icons/bi';
@@ -57,10 +58,15 @@ export default function MainDisplay({ data, tempValue, date }) {
                                 <h2 className="text-5xl sm:text-7xl font-bold text-gray-800 dark:text-gray-200">{tempValue(data.main.temp)}</h2>
                                 <p className="sm:text-lg tracking-wider text-gray-400 pb-3">{data.weather[0].description}</p>
                             </div>
-                            <img
-                                className="w-28 sm:w-36 ml-7 md:ml-14 py-2"
-                                src={imageUrlGenerator(data.weather[0].icon)}
-                            />
+                            
+                            <div className="w-28 sm:w-36 ml-7 md:ml-14 py-2">
+                                <Image 
+                                    width={300}
+                                    height={300}
+                                    src={imageUrlGenerator(data.weather[0].icon)}
+                                    alt="Icone"
+                                />
+                            </div>
                         </main>
 
                         <footer className="flex font-medium text-gray-700 dark:text-gray-200 space-x-3 px-2 mt-7">

@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { AiOutlineMenuUnfold } from 'react-icons/ai';
+import Image from 'next/image';
 import moment from 'moment';
 import axios from 'axios';
 
@@ -65,12 +66,22 @@ export default function Weather() {
     if(mainInfo.error) {
         return (
             <>  
-                <img 
-                    alt="ERROR" 
-                    loading="lazy"
-                    src="https://www.freeiconspng.com/uploads/sign-red-error-icon-1.png" 
-                    className="w-24 md:w-36 mx-auto"
-                />
+                <header className="md:hidden flex justify-between">
+                    <button onClick={toggleScale} className="m-2 p-2 rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-800">
+                        <AiOutlineMenuUnfold size="25" />
+                    </button>
+
+                    <SearchInput />
+                </header>
+
+                <div className="w-24 md:w-36 md:mt-20 mx-auto">
+                    <Image 
+                        width={300}
+                        height={300}
+                        src="/img/ErrorIcon.png"
+                        alt="Error"
+                    />
+                </div>
 
                 <div className="text-center font-semibold text-gray-600 dark:text-gray-200">
                     <h1 className="py-2 text-lg sm:text-2xl xl:text-3xl 2xl:text-4xl">Ocorreu um erro!</h1>

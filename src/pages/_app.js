@@ -19,7 +19,7 @@ export default function MyApp({ Component, pageProps }) {
             <div className={ isDark ? 'dark' : null }>
                 <Head>
                     <title>Weather Viewer</title>
-                    <link rel="icon" href="/WhiteIcon.png" />
+                    <link rel="icon" href="/img/WhiteIcon.png" />
                 </Head>
 
                 <main className="flex min-h-screen bg-gray-50 dark:bg-gray-900 dark:text-gray-300">

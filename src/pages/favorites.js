@@ -84,7 +84,7 @@ export default function Favorites() {
                                 </span>
 
                                 <FaTrash 
-                                    size="22" 
+                                    size="20" 
                                     onClick={() => deleteFavorite(name)}
                                     className="text-red-600 opacity-50 hover:opacity-100 transition duration-150 cursor-pointer" 
                                 /> 

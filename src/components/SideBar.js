@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { useContext } from 'react';
 
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
@@ -29,12 +30,15 @@ export default function SideBar({ page, theme }) {
             <aside className={asideClass} onClick={contentClick}> 
                 <main>
                     <header className="flex items-center space-x-4 py-2 px-2 mb-5">
-                        <img 
-                            className="h-12" 
-                            src={theme.isDark ? '/WhiteIcon.png' : '/BlackIcon.png'} 
-                            alt="Logo" 
+                        <Image 
+                            width={48}
+                            height={48}
+                            src={theme.isDark ? '/img/WhiteIcon.png' : '/img/BlackIcon.png'}
+                            alt="Logo"
                         />
+
                         <h1 className="flex-1 font-semibold text-lg text-gray-700 dark:text-gray-200 capitalize font-poppins">Weather Viewer</h1>
+
                         <button className="sm:hidden pr-2" onClick={closeMenu}>
                             <IoMdClose className="text-gray-600 dark:text-gray-200" size="25" />
                         </button>
