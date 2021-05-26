@@ -6,7 +6,7 @@ import LoaderAnimation from '../../public/LoaderAnimated.json';
 
 import { useEffect, useState } from 'react';
 
-export default ({ animationName }) => {
+export default function lottieAnimation({ animationName }) {
     const [optionAnimation, setOptionAnimation] = useState({})
 
     const defaultOptions = {

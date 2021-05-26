@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { AiOutlineMenuUnfold } from 'react-icons/ai';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import moment from 'moment';
 import axios from 'axios';
@@ -108,7 +109,11 @@ export default function Weather() {
                     </div>
 
                 ) : (
-                    <section>
+                    <motion.section 
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: [0, 1], y: 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
                         <MainDisplay data={mainInfo.data} tempValue={tempConverter} date={day} />
 
                         <div className="flex flex-col sm:flex-row justify-center items-center mb-5 mt-5 sm:mt-10">
@@ -117,12 +122,20 @@ export default function Weather() {
                                     {weekInfo.map((res, key) => {
                                         const day = moment().add(key + 1, 'd').format('dddd')
 
-                                        return <WeekDisplay 
-                                            data={res} 
-                                            key={key} 
-                                            tempValue={tempConverter}
-                                            date={day}
-                                        />
+                                        return (
+                                            <motion.div
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: [0, 1] }}
+                                                transition={{ duration: 0.5, delay: key/8 }}
+                                            >
+                                                <WeekDisplay 
+                                                    data={res} 
+                                                    key={key} 
+                                                    tempValue={tempConverter}
+                                                    date={day}
+                                                />
+                                            </motion.div>
+                                        )
                                     }).slice(0, 5)}
                                 </div>
                             ) : (
@@ -134,7 +147,7 @@ export default function Weather() {
                                 </button>
                             )}
                         </div>
-                    </section>
+                    </motion.section>
                 )
             }
             

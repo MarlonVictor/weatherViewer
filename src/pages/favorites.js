@@ -3,6 +3,7 @@ import { useState, useContext, useEffect } from 'react';
 import { AiOutlineMenuUnfold, AiOutlineSearch } from 'react-icons/ai';
 import { BsStarFill } from 'react-icons/bs';
 import { FaTrash } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 import useLocalStorage from '../hooks/useLocalStorage';
 import { Context } from '../providers/GlobalProvider';
@@ -55,7 +56,12 @@ export default function Favorites() {
                     <h1 className="text-center text-lg sm:text-2xl font-semibold text-gray-600 dark:text-gray-200">Não há nenhum local salvo como Favorito!</h1>
                 </>
             ) : (
-                <main className="mx-auto max-w-md px-4 sm:p-0 md:mt-14 max-h-full">
+                <motion.main 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: [0, 1], y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="mx-auto max-w-md px-4 sm:p-0 md:mt-14 max-h-full"
+                >
                     <h1 className="text-gray-700 dark:text-gray-300 text-2xl font-bold tracking-wider">Meus Favoritos:</h1>
 
                     <div className="flex my-5 space-x-3 text-gray-700 dark:text-gray-300 p-2 rounded-md font-medium border border-gray-200 dark:border-gray-900 bg-white dark:bg-gray-800">
@@ -91,7 +97,7 @@ export default function Favorites() {
                             </li>
                         )}
                     </ul>
-                </main>
+                </motion.main>
             )}
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className=" hidden md:block absolute left-0 bottom-0 pointer-events-none">
