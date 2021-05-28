@@ -18,6 +18,7 @@ export default function SearchInput({ screen }) {
 
     function saveLocationName() {
         setValues.setLocation(inputValue)
+        setValues.setOpenMenu(false)
         router.push('/weather')
         setInputValue('')
         setInputIsOpened(false)

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/MarlonVictor/weatherViewer/blob/master/public/BlackIcon.png" width="160px">
+  <img src="https://github.com/MarlonVictor/weatherViewer/blob/master/public/img/BlackIcon.png" width="160px">
 </p>
 
 <p align="center">
@@ -18,19 +18,21 @@ Primeiro projeto utilizando o Nextjs feito afins de estudos, aprimorando meu con
 * JavaScript
 * React
 * Nextjs
+* Framer Motion
+* Lottie
 
 ## Resultado
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/62356988/106951389-7b411d00-670e-11eb-9f8a-84ab2586e472.gif" width="850px">
+  <img src="https://user-images.githubusercontent.com/62356988/119519759-13abed80-bd50-11eb-9335-6f016a378fb1.gif" width="850px">
 </p>
 
 ### Lista de Favoritos:
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/62356988/106951847-0d492580-670f-11eb-8322-a2a4baeec02e.gif" width="850px">
+  <img src="https://user-images.githubusercontent.com/62356988/119519875-2e7e6200-bd50-11eb-93c0-d580314dfb4b.gif" width="850px">
 </p>
 
 ## Acesse
-* Link do projeto: [Weather Viewer](https://weatherviewer-36tr28asl.vercel.app/)  
+* Link do projeto: [Weather Viewer](https://weatherviewer.vercel.app)  
 
 ## Como Rodar
 
