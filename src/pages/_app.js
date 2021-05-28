@@ -22,7 +22,7 @@ export default function MyApp({ Component, pageProps }) {
                     <link rel="icon" href="/img/WhiteIcon.png" />
                 </Head>
 
-                <main className="flex max-h-screen bg-gray-50 dark:bg-gray-900 dark:text-gray-300">
+                <main className="flex min-h-screen bg-gray-50 dark:bg-gray-900 dark:text-gray-300">
                     <SideBar page={currentPage} theme={{isDark, setIsDark}}/>
 
                     <section className="flex-1">

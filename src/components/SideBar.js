@@ -20,13 +20,13 @@ export default function SideBar({ page, theme }) {
     const contentClick = e => e.stopPropagation()
     
     const asideClass = itsOpen 
-        ? 'z-20 flex flex-col justify-between w-full max-w-xs min-h-screen bg-white dark:bg-gray-800 p-3 shadow-lg absolute' 
+        ? 'z-20 flex flex-col justify-between w-full max-w-xs h-screen max-h-screen bg-white dark:bg-gray-800 p-3 shadow-lg absolute' 
         : 'z-20 hidden md:flex flex-col justify-between w-80 min-h-screen bg-white dark:bg-gray-800 p-3 shadow-lg'
     
 
     return (
         <>
-            <div className={`${itsOpen ? 'absolute' : 'hidden'} w-screen h-full bg-black bg-opacity-75 z-10`} onClick={() => closeMenu()} />
+            <div className={`${itsOpen ? 'absolute' : 'hidden'} w-screen h-screen bg-black bg-opacity-75 z-10`} onClick={() => closeMenu()} />
             <aside className={asideClass} onClick={contentClick}> 
                 <main>
                     <header className="flex items-center space-x-4 py-2 px-2 mb-5">
