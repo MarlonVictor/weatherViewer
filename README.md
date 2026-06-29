@@ -143,9 +143,6 @@ Saved cities are stored in the browser via `localStorage` under the key `aurora.
 * [x] City search with auto-dismissing error feedback
 * [x] Celsius, Fahrenheit, and Kelvin temperature toggle
 * [x] Dynamic Wikipedia background images
-* [ ] Multi-day forecast
-* [ ] Geolocation-based weather
-* [ ] Dark/light theme toggle
 
 <h2 id="colab">🤝 Collaborators</h2>
 
