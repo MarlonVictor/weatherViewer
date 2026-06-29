@@ -1,5 +1,5 @@
 module.exports = {
     images: {
-        domains: ['www.flaticon.com']
+        domains: ['openweathermap.org']
     }
 }

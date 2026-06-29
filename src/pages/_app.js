@@ -1,35 +1,20 @@
 import Head from 'next/head';
-import { useRouter } from 'next/router';
-import { useState } from 'react';
-
-import SideBar from '../components/SideBar';
-import { GlobalProvider } from '../providers/GlobalProvider';
 
 import 'tailwindcss/tailwind.css';
-
+import '../globals.css';
 
 export default function MyApp({ Component, pageProps }) {
-    const router = useRouter()
-    const currentPage = router.pathname === '/favorites' ? 'fav' : 'home'
-
-    const [isDark, setIsDark] = useState(false)
-
     return (
-        <GlobalProvider>
-            <div className={ isDark ? 'dark' : null }>
-                <Head>
-                    <title>Weather Viewer</title>
-                    <link rel="icon" href="/img/WhiteIcon.png" />
-                </Head>
+        <>
+            <Head>
+                <title>Aurora — Previsão do Tempo</title>
+                <link rel="icon" href="/img/WhiteIcon.png" />
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+                <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+            </Head>
 
-                <main className="flex min-h-screen bg-gray-50 dark:bg-gray-900 dark:text-gray-300">
-                    <SideBar page={currentPage} theme={{isDark, setIsDark}}/>
-
-                    <section className="flex-1">
-                        <Component {...pageProps} />
-                    </section>
-                </main>
-            </div>
-        </GlobalProvider>
+            <Component {...pageProps} />
+        </>
     )
 }
